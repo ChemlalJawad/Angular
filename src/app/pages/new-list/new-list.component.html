@@ -1,0 +1,40 @@
+<div class="centered-content">
+  <div class="modal-box">
+    <h1 class="title">Créer ma nouvelle tâche</h1>
+
+    <input
+      #listTitleInput
+      class="input has-background-light is-medium"
+      type="text"
+      placeholder="Nom de la tâche"
+    />
+    <input
+      #listDescriptionInput
+      class="input has-background-light is-medium espace"
+      type="text"
+      placeholder="Description"
+    />
+    <div class="select is-medium espace">
+      <select #listProjectInput>
+        <option *ngFor="let project of projects" [value]="project.id">
+          {{ project.title }}
+        </option>
+      </select>
+    </div>
+    <div class="buttons is-right espace">
+      <button
+        class="button is-primary has-text-white is-medium"
+        (click)="
+          createNewTask(
+            listTitleInput.value,
+            listDescriptionInput.value,
+            listProjectInput.value
+          )
+        "
+      >
+        Create
+      </button>
+      <button class="button is-medium" routerLink="/">Cancel</button>
+    </div>
+  </div>
+</div>
